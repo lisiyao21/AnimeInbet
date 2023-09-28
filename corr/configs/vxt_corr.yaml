@@ -1,0 +1,45 @@
+model:
+    name: SuperGlueT
+    descriptor_dim: 128
+    keypoint_encoder: [32, 64, 128]
+    GNN_layer_num: 12
+    sinkhorn_iterations: 20
+    match_threshold: 0.2
+    descriptor_dim: 128
+
+optimizer:
+    type: Adam
+    kwargs:
+        lr: 0.00001
+        betas: [0.9, 0.999]
+        weight_decay: 0
+    schedular_kwargs:
+        milestones: [50, 150]
+        gamma: 0.1
+
+data:
+    train:
+        batch_size: 1
+        gap: 5
+        model: None
+        action: None
+        type: 'train'
+        mode: 'train'
+    test:
+        batch_size: 1
+        gap: 5
+        type: 'test'
+        model: None
+        action: None
+        mode: 'eval'
+
+testing:
+    ckpt_epoch: 50
+batch_size: 8
+
+expname: vtx_corr
+epoch: 50
+save_per_epochs: 1
+log_per_updates: 1
+test_freq: 1
+seed: 42

@@ -1,0 +1,55 @@
+model:
+    name: InbetweenerTM
+    corr_model:
+        descriptor_dim: 128
+        keypoint_encoder: [32, 64, 128]
+        GNN_layer_num: 12
+        sinkhorn_iterations: 20
+        match_threshold: 0.2
+        descriptor_dim: 128
+    pos_weight: 0.2
+
+optimizer:
+    type: Adam
+    kwargs:
+        lr: 0.0001
+        betas: [0.9, 0.999]
+        weight_decay: 0
+    schedular_kwargs:
+        milestones: [80]
+        gamma: 0.1
+
+data:
+    train:
+        root: 'data/ml144_norm_100_44_split/'
+        batch_size: 1
+        gap: 5
+        type: 'train'
+        model: None
+        action: None
+        mode: 'train'
+    test:
+        root: 'data/ml100_norm/'
+        batch_size: 1
+        gap: 5
+        type: 'all'
+        model: None
+        action: None
+        mode: 'eval'
+        use_vs: False
+
+testing:
+    ckpt_epoch: 20
+    
+batch_size: 8
+
+corr_weights: './corr/experiments/vtx_corr/ckpt/epoch_50.pt'
+
+imwrite_dir: ./inbetween_results/test_gap=5
+
+expname: inbetweener_full
+epoch: 20
+save_per_epochs: 1
+log_per_updates: 1
+test_freq: 10
+seed: 42
