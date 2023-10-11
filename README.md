@@ -150,5 +150,5 @@ If you use our code or data, or find our work inspiring, please kindly cite our 
 
 # License
 
-ML240 is released with CC BY-NC-SA 4.0. Code is released with MIT License.
+ML240 is released with CC BY-NC-SA 4.0. Code is released for non-commercial uses only.
 
