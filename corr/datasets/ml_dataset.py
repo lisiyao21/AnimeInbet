@@ -283,7 +283,7 @@ def worker_init_fn(worker_id):
     np.random.seed(np.random.get_state()[1][0] + worker_id)
 
 def fetch_dataloader(args, type='train',):
-    lineart = MixamoLineArt(root=args.root if hasattr(args, 'root') else '/mnt/lustre/syli/inbetween/data/12by12/ml144_norm_100_44_split/', gap=args.gap, split=args.type, model=args.model, action=args.action, mode=args.mode if hasattr(args, 'mode') else 'train', use_vs=args.use_vs if hasattr(args, 'use_vs') else False)
+    lineart = MixamoLineArt(root=args.root if hasattr(args, 'root') else '../data/ml144_norm_100_44_split/', gap=args.gap, split=args.type, model=args.model, action=args.action, mode=args.mode if hasattr(args, 'mode') else 'train', use_vs=args.use_vs if hasattr(args, 'use_vs') else False)
     train_loader = data.DataLoader(lineart, batch_size=args.batch_size, 
         pin_memory=True, shuffle=True, num_workers=8, drop_last=True, worker_init_fn=worker_init_fn)
 

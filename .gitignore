@@ -2,3 +2,6 @@
 *.pt
 *.jpg
 *.pyc
+data/ml100_norm/
+data/ml144*
+data/*.zip

@@ -78,7 +78,10 @@ The json file in the "labels" folder (for example, ml100_norm/all/labels/chip_ab
 
 ## Environment 
 
-    * pytorch == 1.7
+    conda create -n inbetween python=3.8
+    conda activate inbetween
+    conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=10.1 -c pytorch
+    pip install -r requirement.txt
 
 
 ![image](https://github.com/lisiyao21/AnimeInbet/blob/main/figures/pipeline.png)
